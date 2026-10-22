@@ -1,9 +1,9 @@
 ---
-name: switch-llm
-description: Switch the voice agent's LLM to another model on AssemblyAI's LLM Gateway (Claude, Gemini, GPT, Gemma, Qwen, Nemotron and more), and check it still works. Use when the user wants a different, faster, cheaper or smarter LLM, asks which models are available, asks about latency or time to first token, or needs an LLM served in the EU.
+name: llm-model
+description: Choose the voice agent's LLM from the models on AssemblyAI's LLM Gateway (Claude, Gemini, GPT, Gemma, Qwen, Nemotron and more), or switch to another, and check it still works. Use when setting up a new agent, when the user wants a different, faster, cheaper or smarter LLM, asks which models are available, asks about latency or time to first token, or needs an LLM served in the EU.
 ---
 
-# Switch the LLM
+# LLM model
 
 The agent reaches every LLM through AssemblyAI's [LLM Gateway](https://www.assemblyai.com/docs/llm-gateway/quickstart), an OpenAI-compatible API, with the same AssemblyAI key. Switching is one line in `src/bot.py`:
 
@@ -23,7 +23,12 @@ A voice agent can't start speaking until the LLM sends its first token, so speed
 
 The Gateway publishes its own latency measurements for each model in the `performance` field of `GET /v1/models` (`ttft` is time to first token), which is where these groupings come from.
 
-Ask the user what matters most (speed, cost, handling unusual callers, EU hosting) if they haven't said, and suggest one or two.
+## Ask
+
+- What matters most: replying fast, low cost, or handling complicated requests and many tools well?
+- Must data stay in the EU? Then pick from the models marked EU, and see the [data-residency skill](../data-residency/SKILL.md).
+
+Suggest one or two models.
 
 ## Every model that works for a voice agent
 
@@ -56,19 +61,18 @@ Use `https://llm-gateway.eu.assemblyai.com/v1/models` for the EU list. See the [
 ## Steps
 
 1. Set `LLM_MODEL` in `src/bot.py` to the model's id.
-2. For the EU, also set `LLM_GATEWAY_URL = "https://llm-gateway.eu.assemblyai.com/v1"` and choose an EU model. The README's "Keep data in the EU" section moves the STT and TTS too.
+2. For the EU, also set `LLM_GATEWAY_URL = "https://llm-gateway.eu.assemblyai.com/v1"` and choose an EU model.
 3. Run the tests twice, since an LLM doesn't answer the same way every time:
    ```console
    uv run pytest tests/test_bot.py
    uv run pytest tests/test_bot.py
    ```
-   The two simulated calls check that intake details are saved exactly and the right appointment is booked, which is where weaker models slip.
 4. Talk to it with `uv run src/bot.py` at http://localhost:7860/client to feel the latency.
 
 ## If the tests fail
 
-- **The model talks instead of calling a tool, or invents times:** make the relevant instruction in `INSTRUCTIONS` more explicit, or choose a stronger model.
+- **The model answers instead of calling a tool, or makes things up:** make the relevant instruction in `INSTRUCTIONS` more explicit, or choose a stronger model.
 - **Replies are long or use lists:** some models need the "How to talk" rules repeated; add "Never use lists or markdown." to the end of `INSTRUCTIONS`.
 - **`404` or "model not found":** check the id against the list from `/v1/models`, without a provider prefix, and that the model is served by the Gateway you're using (US or EU).
 
-The tests' judge and simulated caller use `JUDGE_MODEL` in `tests/test_bot.py` (`claude-sonnet-4-6`); leave it as it is when you switch the agent's model, so the bar stays the same.
+The tests' judge uses `JUDGE_MODEL` in `tests/test_bot.py` (`claude-sonnet-4-6`); leave it as it is when you switch the agent's model, so the bar stays the same.

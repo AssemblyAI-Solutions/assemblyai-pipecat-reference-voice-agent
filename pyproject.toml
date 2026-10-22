@@ -1,13 +1,15 @@
 [project]
 name = "assemblyai-pipecat-voice-agent"
 version = "0.1.0"
-description = "A medical receptionist voice agent for Pipecat with AssemblyAI speech-to-text, LLM Gateway and text-to-speech"
+description = "A voice agent starter for Pipecat with AssemblyAI text-to-speech, speech-to-text and LLM Gateway"
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.11, <3.14"
 dependencies = [
     "pipecat-ai[assemblyai,daily,openai,runner,silero,webrtc]~=1.13",
     "python-dotenv",
+    # Time zone data for get_current_time, which slim container images leave out
+    "tzdata",
 ]
 
 [dependency-groups]
@@ -32,4 +34,4 @@ extend-exclude = ["skills/"]
 select = ["E", "F", "W", "I", "N", "B", "UP", "SIM", "RUF"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["assemblyai_tts", "bot", "clinic"]
+known-first-party = ["assemblyai_tts", "bot"]
