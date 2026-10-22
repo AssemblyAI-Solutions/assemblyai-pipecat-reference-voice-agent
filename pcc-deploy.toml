@@ -1,0 +1,8 @@
+# Pipecat Cloud deployment, see https://docs.pipecat.ai/deployment/pipecat-cloud
+agent_name = "receptionist"
+# Create it with: pipecat cloud secrets set receptionist-secrets --file .env.local
+secret_set = "receptionist-secrets"
+agent_profile = "agent-1x"
+
+[scaling]
+	min_agents = 1

@@ -1,0 +1,35 @@
+[project]
+name = "assemblyai-pipecat-voice-agent"
+version = "0.1.0"
+description = "A medical receptionist voice agent for Pipecat with AssemblyAI speech-to-text, LLM Gateway and text-to-speech"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11, <3.14"
+dependencies = [
+    "pipecat-ai[assemblyai,daily,openai,runner,silero,webrtc]~=1.13",
+    "python-dotenv",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "ruff",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+# Skills show snippets of methods, indented to sit inside a class or function
+extend-exclude = ["skills/"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "B", "UP", "SIM", "RUF"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["assemblyai_tts", "bot", "clinic"]
