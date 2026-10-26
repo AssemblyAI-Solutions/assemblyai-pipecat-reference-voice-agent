@@ -64,7 +64,7 @@ Create the STT with `AssemblyAISTT(...)` instead, with the same arguments, and s
 
 It uses a private method of Pipecat's service, so check it still exists when you upgrade `pipecat-ai`. In testing, a phone number read with a 2.2-second pause arrived as two turns on `balanced` and as one with `max_turn_silence=3000`; the agent then replied about 3 seconds after the number ended.
 
-## Keep as it is
+## Keep as they are
 
 `vad_force_turn_endpoint=True` (Pipecat's default) would hand turn decisions to Pipecat's own turn analyzer instead and force AssemblyAI to end turns at every short pause. Keep `False` to use Universal-3.6 Pro's turn detection.
 

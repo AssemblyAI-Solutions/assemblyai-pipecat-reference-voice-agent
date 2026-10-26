@@ -31,7 +31,7 @@ VAD_THRESHOLD = 0.2  # used for Settings(vad_threshold=...) and VADParams(confid
 
 Higher thresholds miss soft speech; lower ones react to noise. Move in steps of about 0.1 and test with real audio from the target environment.
 
-## Other settings
+## Interruption settings
 
 - **Silero, in `VADParams(...)`:** `start_secs` (default `0.2`) is how long speech must last before it counts; raise it to `0.4` in noisy places. `min_volume` (default `0.6`) ignores quiet audio; raise it if distant voices trigger interruptions.
 - **`interruption_delay`** in `AssemblyAISTTService.Settings(...)` sets how soon the first partial transcript arrives (0 to 1000 ms; the server adds 256 ms). `"balanced"` uses 500. Lower it (`0`) for faster barge-in; raise it for more confident first partials in noise.
