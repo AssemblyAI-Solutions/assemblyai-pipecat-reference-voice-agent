@@ -38,7 +38,7 @@ from websockets.protocol import State
 US_BASE_URL = "wss://tts.us.assemblyai.com"
 EU_BASE_URL = "wss://tts.eu.assemblyai.com"
 DEFAULT_MODEL = "assemblyai-tts-1"
-DEFAULT_VOICE = "49c443a4-8a1d-5f7e-b70b-98bdbd9823c3"  # Audrey
+DEFAULT_VOICE = "987db62e-a2c2-569a-9c4d-82460cdea1bd"  # Keegan
 SUPPORTED_SAMPLE_RATES = (8000, 16000, 22050, 24000, 44100, 48000)
 
 # The most text one Generate frame may carry
@@ -85,7 +85,7 @@ class AssemblyAITTSService(WebsocketTTSService):
         Args:
             api_key: AssemblyAI API key. Defaults to the ASSEMBLYAI_API_KEY environment variable.
             voice: A voice id from https://www.assemblyai.com/docs/tts/voices, or one of your
-                cloned voices. Defaults to Audrey.
+                cloned voices. Defaults to Keegan.
             language: The language to speak: English, Spanish, French, German, Italian or
                 Portuguese, as a Language, a code such as "es" or "es-MX", or a name such as
                 "spanish". Defaults to the voice's own language.

@@ -50,10 +50,10 @@ load_dotenv(Path(__file__).parents[1] / ".env.local")
 # --- Voice: skills/tts-voice ---
 
 # A voice id from https://www.assemblyai.com/docs/tts/voices, or one of your cloned voices
-TTS_VOICE = "49c443a4-8a1d-5f7e-b70b-98bdbd9823c3"  # Audrey
+TTS_VOICE = "987db62e-a2c2-569a-9c4d-82460cdea1bd"  # Keegan
 
 # The agent introduces itself by the voice's name; if you change one, change the other
-ASSISTANT_NAME = "Audrey"
+ASSISTANT_NAME = "Keegan"
 
 # --- Speech-to-text ---
 
