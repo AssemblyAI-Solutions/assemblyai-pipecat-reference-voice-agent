@@ -19,7 +19,7 @@ Using LiveKit? See [assemblyai-livekit-reference-voice-agent](https://github.com
 You need [uv](https://docs.astral.sh/uv/getting-started/installation/) and an [AssemblyAI API key](https://www.assemblyai.com/dashboard/api-keys).
 
 ```console
-git clone https://github.com/dan-ince-aai/assemblyai-pipecat-reference-voice-agent.git
+git clone https://github.com/AssemblyAI-Solutions/assemblyai-pipecat-reference-voice-agent.git
 cd assemblyai-pipecat-reference-voice-agent
 uv sync
 cp .env.example .env.local
