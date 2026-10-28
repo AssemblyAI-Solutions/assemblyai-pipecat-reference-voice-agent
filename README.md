@@ -41,7 +41,7 @@ Open http://localhost:7860/client, allow the microphone and press Connect. Wear 
 export ASSEMBLYAI_API_KEY=<your key>
 curl -sS https://tts.us.assemblyai.com/v1/speech \
   -H "Authorization: $ASSEMBLYAI_API_KEY" -H "Content-Type: application/json" \
-  -d '{"text": "Hi, I am Audrey. How can I help?", "voice_id": "49c443a4-8a1d-5f7e-b70b-98bdbd9823c3", "container": "wav"}' \
+  -d '{"text": "Hi, I am Kyla. How can I help?", "voice_id": "37e65973-9d96-5aab-adcd-01bf56ab5af9", "container": "wav"}' \
   -o voice.wav && afplay voice.wav
 ```
 
@@ -58,7 +58,7 @@ Open the repo in Claude Code, Cursor or Codex and describe the agent you want. [
 
 | Building block | Default | Skill |
 |---|---|---|
-| Voice | Audrey | [tts-voice](skills/tts-voice/SKILL.md) |
+| Voice | Kyla | [tts-voice](skills/tts-voice/SKILL.md) |
 | Turn detection | `balanced` | [turn-detection](skills/turn-detection/SKILL.md) |
 | Speech threshold and interruptions | `0.2` | [interruptions-and-vad](skills/interruptions-and-vad/SKILL.md) |
 | Noise suppression | Off | [voice-focus](skills/voice-focus/SKILL.md) |
