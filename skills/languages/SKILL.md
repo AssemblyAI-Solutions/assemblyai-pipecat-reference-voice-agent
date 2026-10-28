@@ -36,7 +36,7 @@ AssemblyAI TTS speaks English, Spanish, German, French, Italian and Portuguese:
 tts = AssemblyAITTSService(api_key=api_key, voice=TTS_VOICE, language="es")  # or Language.ES
 ```
 
-The voice must speak the language. The eleven featured voices (`aai-jane`, `aai-michael` and the rest) speak all six; every other library voice, and every cloned voice, speaks only the language it was recorded in. To find voices recorded in a language, see the [tts-voice skill](../tts-voice/SKILL.md) (`&language=spanish`).
+The voice must speak the language. The eleven featured voices (`aai-jane`, `aai-michael` and the rest) speak all six; every other library voice, and every cloned voice, speaks only the language it was recorded in. The default voice, Kyla, speaks only English, so change `TTS_VOICE` too. To find voices recorded in a language, see the [tts-voice skill](../tts-voice/SKILL.md) (`&language=spanish`).
 
 With a single-language library or cloned voice, leave `language` out: the voice's own language is used.
 

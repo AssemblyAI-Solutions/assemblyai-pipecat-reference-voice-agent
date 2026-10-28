@@ -10,7 +10,7 @@ A voice agent template for [Pipecat](https://github.com/pipecat-ai/pipecat) wher
 
 The AssemblyAI TTS service for Pipecat is [`src/assemblyai_tts.py`](src/assemblyai_tts.py), one file you can copy into any Pipecat bot.
 
-Using LiveKit? See [assemblyai-livekit-reference-voice-agent](https://github.com/AssemblyAI-Solutions/assemblyai-livekit-reference-voice-agent).
+Using LiveKit? See [assemblyai-livekit-reference-voice-agent](https://github.com/AssemblyAI/assemblyai-livekit-reference-voice-agent).
 
 ## Get started
 
@@ -19,7 +19,7 @@ Using LiveKit? See [assemblyai-livekit-reference-voice-agent](https://github.com
 You need [uv](https://docs.astral.sh/uv/getting-started/installation/) and an [AssemblyAI API key](https://www.assemblyai.com/dashboard/api-keys).
 
 ```console
-git clone https://github.com/AssemblyAI-Solutions/assemblyai-pipecat-reference-voice-agent.git
+git clone https://github.com/AssemblyAI/assemblyai-pipecat-reference-voice-agent.git
 cd assemblyai-pipecat-reference-voice-agent
 uv sync
 cp .env.example .env.local
@@ -41,7 +41,7 @@ Open http://localhost:7860/client, allow the microphone and press Connect. Wear 
 export ASSEMBLYAI_API_KEY=<your key>
 curl -sS https://tts.us.assemblyai.com/v1/speech \
   -H "Authorization: $ASSEMBLYAI_API_KEY" -H "Content-Type: application/json" \
-  -d '{"text": "Hi, I am Audrey. How can I help?", "voice_id": "49c443a4-8a1d-5f7e-b70b-98bdbd9823c3", "container": "wav"}' \
+  -d '{"text": "Hi, I am Kyla. How can I help?", "voice_id": "37e65973-9d96-5aab-adcd-01bf56ab5af9", "container": "wav"}' \
   -o voice.wav && afplay voice.wav
 ```
 
@@ -58,7 +58,7 @@ Open the repo in Claude Code, Cursor or Codex and describe the agent you want. [
 
 | Building block | Default | Skill |
 |---|---|---|
-| Voice | Audrey | [tts-voice](skills/tts-voice/SKILL.md) |
+| Voice | Kyla | [tts-voice](skills/tts-voice/SKILL.md) |
 | Turn detection | `balanced` | [turn-detection](skills/turn-detection/SKILL.md) |
 | Speech threshold and interruptions | `0.2` | [interruptions-and-vad](skills/interruptions-and-vad/SKILL.md) |
 | Noise suppression | Off | [voice-focus](skills/voice-focus/SKILL.md) |
